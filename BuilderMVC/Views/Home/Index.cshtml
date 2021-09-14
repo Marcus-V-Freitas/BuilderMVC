@@ -1,0 +1,71 @@
+﻿@model PlanosPrecoViewModel
+
+@{
+    ViewData["Title"] = "Preços dos Planos";
+}
+
+<div class="text-center">
+    <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h1 class="display-4">@ViewData["Title"]</h1>
+    </div>
+    <div class="container">
+        <div class="card-deck mb-3 text-center">
+
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    <h3 class="my-0 font-weight-normal">@Model.PlanoBasico.Nome</h3>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        R$ @Model.PlanoBasico.Preco
+                        <small class="text-muted">/ mês</small>
+                    </h4>
+                    <ul class="list-unstyled mt-3 mb-4">
+                        @foreach (var recurso in Model.PlanoBasico.Recursos)
+                        {
+                            <li>@recurso.Titulo - @recurso.Valor</li>
+                        }
+                    </ul>
+                    <button type="button" class="btn btn-lg btn-block btn-primary">Compre Agora</button>
+                </div>
+            </div>
+
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    <h3 class="my-0 font-weight-normal">@Model.PlanoEnterprise.Nome</h3>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        R$ @Model.PlanoEnterprise.Preco
+                        <small class="text-muted">/ mês</small>
+                    </h4>
+                    <ul class="list-unstyled mt-3 mb-4">
+                        @foreach (var recurso in Model.PlanoEnterprise.Recursos)
+                        {
+                            <li>@recurso.Titulo - @recurso.Valor</li>
+                        }
+                    </ul>
+                    <button type="button" class="btn btn-lg btn-block btn-primary">Compre Agora</button>
+                </div>
+            </div>
+
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    <h3 class="my-0 font-weight-normal">@Model.PlanoCustomizado.Nome</h3>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        Preço Customizado
+                    </h4>
+                    <ul class="list-unstyled mt-3 mb-4">
+                        @foreach (var recurso in Model.PlanoCustomizado.Recursos)
+                        {
+                            <li>@recurso.Titulo - @recurso.Valor</li>
+                        }
+                    </ul>
+                    <button type="button" class="btn btn-lg btn-block btn-primary">Compre Agora</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
